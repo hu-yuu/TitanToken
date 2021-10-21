@@ -35,7 +35,7 @@ contract FactoryV1 is  ProxyLayout {
 
         require(power <=500 && power >=20, "power level is not between 20 and 500");
         require(height >=5 && height <= 200, "height is not between 5 and 200");
-        require(msg.value >= 1 ether, "not enough ETH to mint token");
+        require(msg.value == FEE, "not enough ETH to mint token");
         
         uint256 currId = token.getCurrentId();
         idToTitan[currId] = Titans(power, height);
